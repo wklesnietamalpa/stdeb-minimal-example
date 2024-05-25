@@ -1,46 +1,22 @@
-name: Build and Export .deb Package
+name: Build Debian Package
 
 on:
   push:
     branches:
-      - '**'
-  pull_request:
-    branches:
-      - '**'
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
-
-      - name: Install build dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python3-stdeb fakeroot debhelper dh-python
-
-      - name: Install stdeb and setuptools
-        run: |
-          pip install --upgrade stdeb setuptools
-
-      - name: Modify debian/rules
-        run: |
-          find deb_dist -name rules
-
-
-      - name: Build the .deb package
-        run: |
-          python3 setup.py --command-packages=stdeb.command bdist_deb
-
-      - name: Upload .deb package as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: deb-package
-          path: dist/deb_dist/*.deb
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Install build dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential dh-make debhelper
+      
+    - name: Build package
+      run: |
+        cd path/to/your/source
+        debuild -us -uc
