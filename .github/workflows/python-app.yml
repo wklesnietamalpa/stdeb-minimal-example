@@ -26,9 +26,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y python3-stdeb fakeroot debhelper dh-python
 
+      - name: Install stdeb and setuptools
+        run: |
+          pip install --upgrade stdeb setuptools
+
       - name: Build the .deb package
         run: |
-          pip install stdeb
           python3 setup.py --command-packages=stdeb.command bdist_deb
 
       - name: Upload .deb package as artifact
