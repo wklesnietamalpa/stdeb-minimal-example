@@ -1,5 +1,5 @@
 @@ -1,6 +0,0 @@
-my-package (1.0-1) unstable; urgency=medium
+myscript (1.0-1) unstable; urgency=medium
 
   * Initial release.
   * Fixed a bug in the authentication module.
