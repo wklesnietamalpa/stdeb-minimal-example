@@ -37,5 +37,5 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Build with stdeb
       run: |
-        python setup.py --command-packages=stdeb.command bdist_deb
+        python3 setup.py --command-packages=stdeb.command bdist_deb
         
