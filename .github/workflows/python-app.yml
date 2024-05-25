@@ -18,11 +18,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y debhelper dh-make
         
-    - name: Set PATH to include debuild
-      run: |
-        export PATH="$PATH:/usr/bin"
-        
     - name: Build package
       run: |
         cd myscript
-        debuild -us -uc
+        dpkg-buildpackage -us -uc
