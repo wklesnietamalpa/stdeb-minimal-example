@@ -3,7 +3,7 @@ name: Build Debian Package
 on:
   push:
     branches:
-      - '**'
+      - '*'
 
 jobs:
   build:
@@ -18,7 +18,11 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y debhelper dh-make
         
+    - name: Set PATH to include debuild
+      run: |
+        export PATH="$PATH:/usr/bin"
+        
     - name: Build package
       run: |
-        cd myscript
+        cd path/to/your/source
         debuild -us -uc
