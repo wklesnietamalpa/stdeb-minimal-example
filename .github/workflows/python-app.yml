@@ -32,7 +32,7 @@ jobs:
 
       - name: Modify debian/rules
         run: |
-          sed -i 's/ --install-layout=deb//g' debian/rules
+          find deb_dist -name rules
 
 
       - name: Build the .deb package
