@@ -24,11 +24,11 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3-stdeb fakeroot debhelper
+          sudo apt-get install -y python3-stdeb fakeroot debhelper dh-python
 
       - name: Build the .deb package
         run: |
-          pip install stdeb nvpy
+          pip install stdeb
           python3 setup.py --command-packages=stdeb.command bdist_deb
 
       - name: Upload .deb package as artifact
