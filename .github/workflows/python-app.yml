@@ -3,10 +3,10 @@ name: Build and Export .deb Package
 on:
   push:
     branches:
-      - '**'  # Uruchamia na każdym commicie do dowolnej gałęzi
+      - '**'
   pull_request:
     branches:
-      - '**'  # Uruchamia na każdym pull request do dowolnej gałęzi
+      - '**'
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'  # Użyj odpowiedniej wersji Pythona
+          python-version: '3.8'
 
       - name: Install build dependencies
         run: |
@@ -29,6 +29,10 @@ jobs:
       - name: Install stdeb and setuptools
         run: |
           pip install --upgrade stdeb setuptools
+
+      - name: Modify debian/rules
+        run: |
+          sed -i 's/ --install-layout=deb//g' deb_dist/myscript-1.1/debian/rules
 
       - name: Build the .deb package
         run: |
