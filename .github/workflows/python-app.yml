@@ -24,7 +24,7 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3-stdeb fakeroot debhelper
+          sudo apt-get install -y python3-stdeb fakeroot debhelper nvpy
 
       - name: Build the .deb package
         run: |
