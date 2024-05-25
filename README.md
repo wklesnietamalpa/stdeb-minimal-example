@@ -1,5 +1,4 @@
-stdeb minimal example
-=====================
+##stdeb minimal example
 
 This is a minimal example demonstrating how you can turn a
 `setup.py`-based Python package into an installable .DEB file.
