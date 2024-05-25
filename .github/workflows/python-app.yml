@@ -3,10 +3,10 @@ name: Build and Export .deb Package
 on:
   push:
     branches:
-      - main
+      - '**'  # Uruchamia na każdym commicie do dowolnej gałęzi
   pull_request:
     branches:
-      - main
+      - '**'  # Uruchamia na każdym pull request do dowolnej gałęzi
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.10'  # Użyj odpowiedniej wersji Pythona
+          python-version: '3.8'  # Użyj odpowiedniej wersji Pythona
 
       - name: Install build dependencies
         run: |
