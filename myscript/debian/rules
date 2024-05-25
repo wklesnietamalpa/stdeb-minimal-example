@@ -9,7 +9,7 @@ DEB_BUILD_OPTIONS := nocheck
 
 # Budowanie
 %:
-    dh $@
+    dh $@ --with bash-completion
 
 # Przygotowanie przed budową
 override_dh_auto_configure:
