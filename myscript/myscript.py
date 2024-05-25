@@ -1,5 +1,5 @@
 def main():
-    print "Hello world, says myscript!"
+    print("Hello world, says myscript!")
     # wait for input from the user
     raw_input()
 
